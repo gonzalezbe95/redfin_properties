@@ -48,6 +48,7 @@ Each phase is logically separated and executed sequentially with transactional s
 
 
 ⚙️ ETL Breakdown
+
 1️⃣ Extract
 
 Detects latest CSV dataset
