@@ -1,5 +1,6 @@
 🔵 Redfin Property ETL Pipeline
 Python • Transactional Data Processing • Spatial Data Engineering
+
 📌 Overview
 
 This project is a production-oriented ETL pipeline built in Python to automate ingestion, transformation, spatial enrichment, and persistence of real estate listing data into an enterprise GIS environment.
@@ -22,6 +23,7 @@ Spatial validation and enrichment
 
 Automation-ready execution (Task Scheduler compatible)
 
+
 🧠 Problem Statement
 
 Manual ingestion of listing data into enterprise GIS systems leads to:
@@ -38,10 +40,12 @@ No spatial validation
 
 This pipeline solves those issues with a structured, repeatable workflow.
 
+
 🏗️ High-Level Architecture
 Extract → Transform → Load → Enrich → Cleanup
 
 Each phase is logically separated and executed sequentially with transactional safety.
+
 
 ⚙️ ETL Breakdown
 1️⃣ Extract
@@ -51,6 +55,7 @@ Detects latest CSV dataset
 Validates file availability
 
 Initializes structured logging
+
 
 2️⃣ Transform
 
@@ -62,6 +67,7 @@ Converts coordinates to spatial features (EPSG:4326)
 
 Applies boundary-based filtering
 
+
 3️⃣ Load
 
 Opens explicit transactional edit session
@@ -72,6 +78,7 @@ Inserts only validated, non-duplicate records
 
 Commits or rolls back atomically
 
+
 4️⃣ Enrich
 
 Performs spatial intersection classification
@@ -79,6 +86,7 @@ Performs spatial intersection classification
 Computes nearest parcel distance
 
 Updates derived attributes
+
 
 5️⃣ Cleanup
 
@@ -119,6 +127,7 @@ Modular refactor planned
 
 Suitable for scheduled execution
 
+
 📁 Project Structure (Recommended Refactor)
 redfin_properties/
 │
@@ -140,6 +149,7 @@ redfin_properties/
 
 (Current implementation exists as a single script; modularization planned.)
 
+
 🔐 Configuration
 
 Environment-specific values are abstracted into local-only files:
@@ -159,6 +169,7 @@ RESERVATION_URL = ""
 TEMP_GDB = r""
 ENTERPRISE_GDB = r""
 CSV_FOLDER = r""
+
 📊 Logging & Observability
 
 The pipeline logs:
@@ -177,6 +188,7 @@ Full exception stack traces
 
 Designed for production debugging and monitoring.
 
+
 🚀 Potential Enhancements
 
 Refactor into modular package structure
@@ -190,6 +202,7 @@ Add CLI support (argparse)
 Containerize execution
 
 Add CI workflow
+
 
 👤 Author
 
